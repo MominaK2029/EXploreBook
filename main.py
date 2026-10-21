@@ -52,6 +52,7 @@ with open("YA_Books.csv", mode = "r", encoding="utf-8") as bookfile:
             
          
     # # Highest rated
+    rating = float(row[6])
     if rating >= max_rating:
-        highestrated = row
-    print(f"The highest rated book: {highestrated}")
+        ratedhigh = row
+    print(f"The highest rated book: {ratedhigh}")
