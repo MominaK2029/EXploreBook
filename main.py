@@ -10,9 +10,12 @@ with open("YA_Books.csv", mode = "r", encoding="utf-8") as bookfile:
     next(books)
     
     # author col is at index 1
-    minrating = 5 
-    max_year = 0 
-    max_rating = 5
+    minrating = 0
+    max_year = 0
+    minyear = 0 
+    maxyear2 = 2021
+    max_rating = 4.51
+
     for row in books:
     #     print authors with letter 'M'
     #     if row[1].startswith("M"):
@@ -34,23 +37,21 @@ with open("YA_Books.csv", mode = "r", encoding="utf-8") as bookfile:
 
         # Book with the worst rating
         rating = float(row[6])
-        if minrating > rating:
-            minrating = rating
+        if max_rating > rating:
+            max_rating = rating
             worstbook = row
 
     # Longest book publshed before 2000
-        if year < 2000:
-            pages = int(row[5])
-            if pages > 100:
-                longestbook = row
+        pages = int(row[5])
+        if minyear < maxyear2:
+            minyear = maxyear2
+            longestbook = row
     print(f"The longest book before the 2000s: {longestbook}")
     print(f"Most recent book: \n{most_recent_book}")
     print(f"The worst book: \n {worstbook}")
             
          
-    # # Highest rated over 100 pages
-    if pages > 100:
-        if rating > minrating:
-            rating <= max_rating
-            highestrated = row
-    print(f"The highest rated book with over 100 pages: {highestrated}")
+    # # Highest rated
+    if rating >= max_rating:
+        highestrated = row
+    print(f"The highest rated book: {highestrated}")
