@@ -51,6 +51,6 @@ with open("YA_Books.csv", mode = "r", encoding="utf-8") as bookfile:
     # # Highest rated over 100 pages
     if pages > 100:
         if rating > minrating:
-            rating >= max_rating
+            rating <= max_rating
             highestrated = row
     print(f"The highest rated book with over 100 pages: {highestrated}")
